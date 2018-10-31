@@ -54,7 +54,7 @@ if __name__ == "__main__":
 '''
 根据官方solution的方法，可以采用一个进位carry方便的完成一次遍历得出结果，不过过程稍微麻烦。
 
-![add_two](https://github.com/hanlaoshi/leetcode-DailyProblem/blob/master/img-storage/add_two_nums.png?raw=true)
+
 
 两个要注意的地方：如果列表长度不相等；如果列表相加完成最后仍有进位位。
 
