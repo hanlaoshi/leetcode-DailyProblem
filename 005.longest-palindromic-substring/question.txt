@@ -1,0 +1,19 @@
+Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
+
+Example 1:
+
+Input: "babad"
+Output: "bab"
+Note: "aba" is also a valid answer.
+Example 2:
+
+Input: "cbbd"
+Output: "bb"
+
+找到一个字符串的最长回文子字符串，该字符串长度不超过1000，且只有唯一一个最长回文子串。
+注意点：
+·返回结果是整个子字符串，不是它的长度
+·回文字符串要考虑奇偶的情况例子：
+输入：s="abae"
+输出：aba输入：s="abbae"
+输出：abba
