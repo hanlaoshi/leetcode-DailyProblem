@@ -7,4 +7,4 @@
 
 4. 欢迎扫码加入我们的公众号，日常打卡，期待大家一起变优秀，成为offer收割机！！！
 
-![gongzhonghao](https://github.com/hanlaoshi/leetcode-One-topic-per-day/blob/master/img-storage/gonghzonghao.jpg?raw=true)
+![gongzhonghao](https://github.com/hanlaoshi/leetcode-One-topic-per-day/blob/master/img-storage/gongzhonghao.jpg?raw=true)
