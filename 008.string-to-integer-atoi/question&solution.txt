@@ -1,0 +1,79 @@
+Implement atoi which converts a string to an integer.
+
+The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.
+
+The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.
+
+If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.
+
+If no valid conversion could be performed, a zero value is returned.
+
+Note:
+
+Only the space character ' ' is considered as whitespace character.
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
+Example 1:
+
+Input: "42"
+Output: 42
+Example 2:
+
+Input: "   -42"
+Output: -42
+Explanation: The first non-whitespace character is '-', which is the minus sign.
+             Then take as many numerical digits as possible, which gets 42.
+Example 3:
+
+Input: "4193 with words"
+Output: 4193
+Explanation: Conversion stops at digit '3' as the next character is not a numerical digit.
+Example 4:
+
+Input: "words and 987"
+Output: 0
+Explanation: The first non-whitespace character is 'w', which is not a numerical 
+             digit or a +/- sign. Therefore no valid conversion could be performed.
+Example 5:
+
+Input: "-91283472332"
+Output: -2147483648
+Explanation: The number "-91283472332" is out of the range of a 32-bit signed integer.
+             Thefore INT_MIN (−231) is returned.
+
+
+实现atoi，将字符串转为整数。
+该函数首先根据需要丢套任意多的空格字符，直到找到第一个非空格字符为止。
+如果第一个非至字符是正考或负号，选取该符号，并将其与后面尽可能多的连续的教学组合起来，这部分符即为整数的值。
+如果第一个非空字符是数字，则重接将真写之后连续的数字符组合起来，形成签数。
+字签串可以在形成整数的字符后面包括多余的字符，这些字符可以被忽略，它们对于函数没有影响。
+当字符里中鲍第一个非室亲签烈不是个有效的整数；或字符串为空；或字符串夜包含至白字蒋时，则本进行转换。若函数不能执行有效的转换，返回0。
+
+
+
+
+
+方法：
+仔细考虑所有输入情况。如果你想挑战自己，请不要看下面并自己考虑所有可能的输入情况。
+这题解释的比较模糊（即没有指定输入格式）。你得事先汇集所有的输入情况。
+atoi的要求：
+
+这个函数需要丢弃之前的空白字符，直到找到第一个非空白字符。之后从这个字符开始，选取一个可选的正号或负号后面跟随尽可能多的数字，并将其解释为数字的值。
+字符串可以在形成整数的字符后包括多余的字符，将这些字符忽略，这些字符对于函数的行为没有影响。
+如果字符串中的第一个非空白的字符不是有效的整数，或者没有这样的序列存在，字符串为空或者只包含空白字符则不进行转换。
+如果不能执行有效的转换，则返回 0。如果正确的值超过的可表示的范围，则返回 INT_MAX（2147483647）或 INT_MIN（-2147483648）。
+解法
+我自己并没有完全解出来这道题目，原因是没有测试覆盖所有的情况。
+
+正如题目中提示的一样，这道题目真正的难点在于如何将所有可能输入的情况覆盖到。
+
+除了要考虑到：
+
+任意地方的空白字符‘ ’
+跳过任意地方的非数字字符
+数值范围限制（INT_MAX or INT_MIN）
+我们还需要做到：
+
+标记出正负
+剔除空白字符
+判断数值大小是否超过范围
+非法输入
