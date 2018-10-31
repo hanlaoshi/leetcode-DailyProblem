@@ -1,3 +1,22 @@
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example:
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+
+
+
+
+
+
+
+
+
+
 本题主要是类似数据在机器中存储的方式，我们平常所见的数据比如342，
 在链表中是逆向存储的所以就成了2->4->3这样了，同样5 -> 6 -> 4就是465，
 如果这样转换后，我们就会发现342+465=807，在十位上相加是超过10向前进一，
