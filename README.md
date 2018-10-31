@@ -1,4 +1,4 @@
-# leetcode-One-topic-per-day
+# leetcode--DailyProblem
 1. 为了方便大家刷题和统一管理题目，特意建立此repo，方便大家学习交流；
 
 2. 每题的解题方法包括但不限于c++, java, python，欢迎大家补充；
