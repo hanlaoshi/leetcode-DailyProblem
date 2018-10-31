@@ -5,4 +5,4 @@
 
 3. 公众号为： AI数据分析算法 ，欢迎大家关注、交流。
 
-4. ![](https://github.com/hanlaoshi/leetcode-One-topic-per-day/raw/master/gongzonghao.jpg
+4. ![Image discription]
