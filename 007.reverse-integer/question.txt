@@ -1,0 +1,42 @@
+Given a 32-bit signed integer, reverse digits of an integer.
+
+Example 1:
+
+Input: 123
+Output: 321
+Example 2:
+
+Input: -123
+Output: -321
+Example 3:
+
+Input: 120
+Output: 21
+Note:
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1]. 
+For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
+
+给定一个32位有符号整数，将整数中的数字进行反转。
+示例1：输入：123输出：321示例2：
+输入：-123输出：-321示例3：输入：120输出：21注意：
+假设我们的环境只能存倩32.位有符号整数，其数值范围是[-2^31，2^31-1.根据这个假设，如果反转后的整数产出，则返回0。
+
+
+方法：弹出和推入数字 & 溢出前进行检查
+思路
+我们可以一次构建反转整数的一位数字。在这样做的时候，我们可以预先检查向原整数附加另一位数字是否会导致溢出。
+算法
+反转整数的方法可以与反转字符串进行类比。
+我们想重复“弹出” x的最后一位数字，并将它“推入”到 \text{rev}
+rev 的后面。最后，rev 将与 x 相反。
+要在没有辅助堆栈 / 数组的帮助下 “弹出” 和 “推入” 数字，我们可以使用数学方法。
+//pop operation:
+pop = x % 10;
+x /= 10;
+
+//push operation:
+temp = rev * 10 + pop;
+rev = temp;
+但是，这种方法很危险，因为当 \text{temp} = \text{rev} \cdot 10 + \text{pop}
+temp=rev⋅10+pop 时会导致溢出。
+幸运的是，事先检查这个语句是否会导致溢出很容易。
