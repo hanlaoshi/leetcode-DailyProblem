@@ -1,5 +1,5 @@
 #欢迎关注微信公众号：AI数据分析算法
-#来自群成员 “辰星” 的方法
+#来自群成员 @辰星 的方法
 class Solution: 
     def intToRoman(self,num): 
     '''
