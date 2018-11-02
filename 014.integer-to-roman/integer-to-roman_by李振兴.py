@@ -21,7 +21,7 @@ class Solution(object):
             A = map(int,str(num))[::-1]
             indexi = 0
             for i in A:
-              ret - r[i][indexi] + ret
+              ret = r[i][indexi] + ret
               indexi +=1
             return ret
             
