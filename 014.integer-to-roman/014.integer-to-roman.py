@@ -50,7 +50,7 @@ if __name__ == "__main__":
             """
             ret = ""
             for i in range(len(str(num))):
-                digit = (num // (10 ** i)) % 10
+                digit = (num // (10 ** i)) % 10  #10**i 表示的是10^i 次幂
                 if digit > 0:
                     ret = self.r[digit][i] + ret
             return ret
