@@ -1,5 +1,5 @@
 
-![Roman_to_int](https://github.com/hanlaoshi/leetcode-DailyProblem/blob/master/img-storage/Longest%20Common%20Prefix.jpg)
+![Roman_to_int](https://github.com/hanlaoshi/leetcode-DailyProblem/blob/master/img-storage/26.RemoveDuplicates%20fromSorted%20Array.png)
 
 编写一个函数来查找字符串数组中的最长公共前缀。
 
