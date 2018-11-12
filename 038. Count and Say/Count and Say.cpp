@@ -1,3 +1,4 @@
+//算法很简单，就是对于前一个数，找出相同元素的个数，把个数和该元素存到新的string里。
 class Solution {
 public:
     string countAndSay(int n) {
