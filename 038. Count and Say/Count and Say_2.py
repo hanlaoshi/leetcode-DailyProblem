@@ -1,4 +1,4 @@
-
+# 群友 @李振业 的方法
 def Next(s): 
   st="1
   for i in range(len(s)):
