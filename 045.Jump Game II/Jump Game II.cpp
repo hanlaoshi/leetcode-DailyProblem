@@ -1,4 +1,4 @@
---c++-------------这是运行速度最快的 ，大牛写的 ，看不懂 不会c [囧]
+----------------C++-------------这是运行速度最快的 ，大牛写的 ，看不懂 不会c [囧]
 static const auto init = []() {
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
