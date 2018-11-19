@@ -1,4 +1,3 @@
-#----------------------python(辰星出品)--------------------
 class Solution:
     def uniquePaths(self, m, n):
         """
