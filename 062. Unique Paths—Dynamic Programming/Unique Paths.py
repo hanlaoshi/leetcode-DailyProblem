@@ -1,27 +1,20 @@
-'''
-解题思路
-这道题比较单间，采用递归把数组中的数字依次加入当前数组current来进行排列组合。
-
-'''
-class Solution(object):
-    def permute(self, nums):
+class Solution:
+    def uniquePaths(self, m, n):
         """
-        :type nums: List[int]
-        :rtype: List[List[int]]
+        :type m: int
+        :type n: int
+        :rtype: int
         """
-        result = []
-        self.get_permute([], nums, result)
-        return result
 
-    def get_permute(self, current, num, result):
-        if not num:
-            result.append(current + [])
-            return
-        for i, v in enumerate(num):
-            current.append(num[i])
-            self.get_permute(current, num[:i] + num[i + 1:], result)
-            current.pop()
+        def recursion_paths(x, y):
+            n = 0
+            if x:
+                n += recursion_paths(x - 1, y)
 
+            if y:
+                n += recursion_paths(x, y - 1)              
+            if x == 0 and y == 0:
+                n = 1
+            return n
 
-if __name__ == "__main__":
-    assert Solution().permute([1, 2, 3]) 
+        return recursion_paths(m - 1, n - 1)
