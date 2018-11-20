@@ -1,27 +1,15 @@
-'''
-解题思路
-这道题比较单间，采用递归把数组中的数字依次加入当前数组current来进行排列组合。
-
-'''
 class Solution(object):
-    def permute(self, nums):
+    def uniquePathsWithObstacles(self, obstacleGrid):
         """
-        :type nums: List[int]
-        :rtype: List[List[int]]
+        :type obstacleGrid: List[List[int]]
+        :rtype: int
         """
-        result = []
-        self.get_permute([], nums, result)
-        return result
-
-    def get_permute(self, current, num, result):
-        if not num:
-            result.append(current + [])
-            return
-        for i, v in enumerate(num):
-            current.append(num[i])
-            self.get_permute(current, num[:i] + num[i + 1:], result)
-            current.pop()
-
-
-if __name__ == "__main__":
-    assert Solution().permute([1, 2, 3]) 
+        if not len(obstacleGrid) or not len(obstacleGrid[0]): return 0
+        m, n = len(obstacleGrid), len(obstacleGrid[0])
+        dp = [[0] * (n+1) for _ in xrange(m+1)]
+        dp[0][1] = 1
+        for r in xrange(1, m+1):
+            for c in xrange(1, n+1):
+                if obstacleGrid[r-1][c-1] == 0:
+                    dp[r][c] = dp[r-1][c] + dp[r][c-1]
+        return dp[-1][-1]
