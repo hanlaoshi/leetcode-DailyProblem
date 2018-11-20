@@ -1,19 +1,4 @@
-#--------------python(星辰出品)-----------
-class Solution:
-    def recursion_paths(x, y):
-            n = 0
-            if x:
-                n += recursion_paths(x - 1, y)
-
-            if y:
-                n += recursion_paths(x, y - 1)              
-            if x == 0 and y == 0:
-                n = 1
-            return n
-
-        return recursion_paths(m - 1, n - 1)
-
-#--------------python第二种-----------
+#--------------python-----------
 class Solution:
     def uniquePaths(self, m, n):
         """
@@ -32,3 +17,17 @@ class Solution:
             for j in range(1,n):
                 dp[i][j] = dp[i-1][j] + dp[i][j-1]
         return dp[m-1][n-1]
+#--------------python(星辰出品)-----------
+class Solution:
+    def recursion_paths(x, y):
+            n = 0
+            if x:
+                n += recursion_paths(x - 1, y)
+
+            if y:
+                n += recursion_paths(x, y - 1)              
+            if x == 0 and y == 0:
+                n = 1
+            return n
+
+        return recursion_paths(m - 1, n - 1)
