@@ -1,27 +1,21 @@
-'''
-解题思路
-这道题比较单间，采用递归把数组中的数字依次加入当前数组current来进行排列组合。
-
-'''
-class Solution(object):
-    def permute(self, nums):
+#----------------辰星出品-------------------------
+class Solution:
+    def minPathSum(self, grid):
         """
-        :type nums: List[int]
-        :rtype: List[List[int]]
+        :type grid: List[List[int]]
+        :rtype: int
         """
-        result = []
-        self.get_permute([], nums, result)
-        return result
-
-    def get_permute(self, current, num, result):
-        if not num:
-            result.append(current + [])
-            return
-        for i, v in enumerate(num):
-            current.append(num[i])
-            self.get_permute(current, num[:i] + num[i + 1:], result)
-            current.pop()
-
-
-if __name__ == "__main__":
-    assert Solution().permute([1, 2, 3]) 
+        n = len(grid)
+        if n == 0: return 0
+        m = len(grid[0])
+        if m == 0: return 0
+        min_grid = [[None]*m for i in range(n)]
+        min_grid[0][0] = grid[0][0]
+        for i in range(1, m):
+            min_grid[0][i] = min_grid[0][i - 1] + grid[0][i]
+        for i in range(1, n):
+            min_grid[i][0] = min_grid[i - 1][0] + grid[i][0]
+        for i in range(1, n):
+            for j in range(1, m):
+                min_grid[i][j] = min(min_grid[i - 1][j],min_grid[i][j - 1]) + grid[i][j]
+        return min_grid[n - 1][m - 1]
