@@ -1,27 +1,35 @@
-'''
-解题思路
-这道题比较单间，采用递归把数组中的数字依次加入当前数组current来进行排列组合。
-
-'''
+# Definition for a binary tree node.
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+ 
 class Solution(object):
-    def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-        result = []
-        self.get_permute([], nums, result)
-        return result
-
-    def get_permute(self, current, num, result):
-        if not num:
-            result.append(current + [])
-            return
-        for i, v in enumerate(num):
-            current.append(num[i])
-            self.get_permute(current, num[:i] + num[i + 1:], result)
-            current.pop()
-
-
-if __name__ == "__main__":
-    assert Solution().permute([1, 2, 3]) 
+   def generateTrees(self, n):
+       """
+       :type n: int
+       :rtype: List[TreeNode]
+       """
+       if n == 0:
+           return []
+       return self.dfs(1,n)
+       
+   def dfs(self, b, e):#b,e为开始和结束数字
+       if b > e:
+           return [None]
+       res = []
+       for rootVal in range(b, e + 1):
+           leftTree = self.dfs(b, rootVal - 1)
+           rightTree = self.dfs(rootVal + 1, e)
+           for i in leftTree:
+                for j in rightTree:
+                    root = TreeNode(rootVal)
+                    root.left = i
+                    root.right = j
+                    res.append(root)
+       return res
+ 
+if __name__ == '__main__':
+    S= Solution()
+   S.generateTrees(3)
