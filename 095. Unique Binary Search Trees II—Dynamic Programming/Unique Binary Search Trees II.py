@@ -1,3 +1,25 @@
+#----------------辰星preorder算法------------
+class Solution:
+    def generateTrees(self, n):
+        """
+        :type n: int
+        :rtype: List[TreeNode]
+        """
+        null = None
+        dp = [[] for nums in range(0, n + 1)]
+        dp[0] = [[[null]]]*(n+1)
+        dp[1] = [[[i + 1]] for i in range(0,n)]
+        for nums in range(2, n + 1):        	
+        	for start in range(0, n + 1 - nums):
+        		dp[nums].append([])
+        		for top in range(start, start + nums):        			
+        			for left in dp[top - start][start]:        				
+        				for right in dp[start + nums - top - 1][top + 1]:  
+        					dp[nums][start].append([top + 1])      					
+        					dp[nums][start][-1].extend(left)
+        					dp[nums][start][-1].extend(right)
+        return dp[n][0]
+#--------------------第二种-------------------------
 # Definition for a binary tree node.
 class TreeNode(object):
     def __init__(self, x):
