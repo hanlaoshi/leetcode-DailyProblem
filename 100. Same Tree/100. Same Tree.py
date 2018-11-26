@@ -29,3 +29,34 @@ class Solution(object):
 
 if __name__ == "__main__":
     None
+
+ #第二种方法
+ # by 辰星大佬出品
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isSameTree(self, p, q):
+        """
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: bool
+        """ 
+        def ChkSameTree(p, q):
+            if (not p) and (not q):
+                return True
+            elif (not p) or (not q):
+                return False
+            if p.val != q.val:
+                return False
+            if ChkSameTree(p.left, q.left) and ChkSameTree(p.right,q.right):
+                return True
+            else:
+                return False
+            
+        return ChkSameTree(p, q)
