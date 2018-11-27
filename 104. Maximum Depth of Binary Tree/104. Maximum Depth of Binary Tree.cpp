@@ -20,3 +20,29 @@ public:
         return work(root, 0);
     }
 };
+
+
+// 李承民大佬出品
+
+/**
+ * Definition for a binary tree node.
+ * type TreeNode struct {
+ *     Val int
+ *     Left *TreeNode
+ *     Right *TreeNode
+ * }
+ */
+func max(a, b int) int {
+    if (a > b) {
+        return a
+    }
+    return b
+}
+
+func maxDepth(root *TreeNode) int {
+    if nil == root {
+        return 0
+    }
+    
+    return max(maxDepth(root.Left), maxDepth(root.Right))+1
+}
