@@ -44,3 +44,38 @@ class Solution:
             if not root: return cc
             return max(work(root.left, cc + 1), work(root.right, cc + 1))
         return work(root, 0)
+    
+    
+#第三种方法   辰星大佬出品
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root: return 0
+        depth = 1        
+        dp_last = [root]
+        while True:
+            dp_cur = []
+            for node in dp_last:
+                if node:                    
+                    if node.left:
+                        dp_cur.append(node.left)
+                    if node.right:
+                        dp_cur.append(node.right)
+            if dp_cur:   
+                depth += 1
+                dp_last = dp_cur
+            else:
+                break
+        return depth
+
