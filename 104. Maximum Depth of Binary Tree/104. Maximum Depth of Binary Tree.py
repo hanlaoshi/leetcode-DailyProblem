@@ -79,3 +79,33 @@ class Solution:
                 break
         return depth
 
+    # 第四种方法  辰星大佬出品
+    
+    # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def maxDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root: return 0
+        cnt = 0        
+        dp = [[root]]
+        while dp[cnt]:            
+            dp.append([])
+            cnt += 1
+            for node in dp[cnt - 1]:
+                if node:                    
+                    if node.left:
+                        dp[cnt].append(node.left)
+                    if node.right:
+                        dp[cnt].append(node.right)
+        dp.pop()                   
+        return cnt
+    
