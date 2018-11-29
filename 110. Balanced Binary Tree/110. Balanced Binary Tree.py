@@ -31,3 +31,27 @@ class Solution(object):
 
 if __name__ == "__main__":
     None
+
+    
+#方法2 by 辰星大佬 方法
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        def depth(root):
+            if not root: return 0
+            return 1 + max(depth(root.left), depth(root.right))
+        if not root: return True
+        return abs(depth(root.left) - depth(root.right)) <= 1 and \
+                self.isBalanced(root.left) and self.isBalanced(root.right)
+
