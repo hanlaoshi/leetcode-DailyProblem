@@ -67,7 +67,7 @@ class Solution:
   
 
 
-#  方法3   多年文件大佬 出品
+#  方法3   多年未见大佬 出品
     # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
