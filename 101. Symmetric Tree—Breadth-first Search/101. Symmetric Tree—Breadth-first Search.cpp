@@ -1,3 +1,18 @@
+#--------------多年未见cpp写的深搜---------------------
+class Solution {
+    bool sameTree(TreeNode* a, TreeNode* b) {
+        if (a == NULL && b == NULL) return true;
+        if (a == NULL || b == NULL) return false;
+        if (a->val != b->val) return false;
+        return sameTree(a->left, b->right) && sameTree(a->right, b->left);
+    }
+public:
+    bool isSymmetric(TreeNode* root) {
+        if (root == NULL) return true;
+        return sameTree(root->left, root->right);
+    }
+};
+#----------------------二---------------------
 #说明: 
 #如果你可以运用递归和迭代两种方法解决这个问题，会很加分。
 
