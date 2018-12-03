@@ -1,3 +1,18 @@
+#-----------------------辰星----------------------
+class Solution:
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        def sameTree(n1, n2):
+            if not n1 and not n2: return True
+            if not n1 or not n2: return False
+            return n1.val==n2.val and sameTree(n1.left, n2.right) and sameTree(n1.right, n2.left)
+        
+        if not root: return True
+        return sameTree(root.left, root.right)
+#------------------------------二---------------------
 #分析：
 
 #可以采用DFS方式或BFS方式遍历树，并对比节点值
