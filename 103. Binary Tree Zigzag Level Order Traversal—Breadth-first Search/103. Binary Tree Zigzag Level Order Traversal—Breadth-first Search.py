@@ -1,3 +1,22 @@
+#-------辰星-------------
+class Solution:
+    def zigzagLevelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if not root: return []
+        order, rtn, cur = 1, [], [root]
+        while cur:
+            temp, nxt = [], []
+            for node in cur:
+                temp.append(node.val)
+                if node.left: nxt.append(node.left)
+                if node.right: nxt.append(node.right)           
+            rtn.append(temp[::order])
+            cur, order = nxt, -1 * order
+        return rtn
+ #------------2python-------------
 #思路：和上一篇文章102的思路基本相同，只是在res中加入templist时加了一步判断flag是否为负的步骤，
 #如果为负，表示是偶数次遍历应该从右往左，将templist更新为逆序
 
