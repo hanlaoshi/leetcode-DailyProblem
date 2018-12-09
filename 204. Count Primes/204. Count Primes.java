@@ -42,3 +42,21 @@ public int countPrimes(int n) {
 		return result;
 	}
   
+
+//方法2
+//朴素的判断必定超时，我们每次判断一个数是素数的时候，就将它的倍数标记为非素数即可。
+class Solution {
+    public int countPrimes(int n) {
+        if (n <= 2) return 0;
+        boolean[] vis = new boolean[n];
+        for (int i = 2; i * i < n; i++) {
+            if (vis[i]) continue;
+            for (int j = i; j * i < n; j++)
+                vis[i * j] = true;
+        }
+        int ans = 0;
+        for (int i = 2; i < n; i++)
+            if (!vis[i]) ans++;
+        return ans;
+    }
+}
