@@ -54,3 +54,24 @@ class Solution(object):
                     digits[j] = 1
 
         return count
+
+    #方法3   
+
+class Solution(object):
+    def countPrimes(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n <= 2: return 0
+        vis = [False] * n
+        for i in range(2, int(n ** 0.5) + 1):
+            if vis[i]: continue
+            j = i
+            while j * i < n:
+                vis[j * i] = True
+                j += 1
+        ans = 0
+        for i in range(2, n):
+            if not vis[i]: ans += 1
+        return ans
