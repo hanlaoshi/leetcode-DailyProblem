@@ -42,3 +42,25 @@ class Solution(object):
         while n>99:
             n = sum([int(x) * int(x) for x in list(str(n))])
         return n in happySet
+    
+    
+    
+ #方法三   辰星大佬
+class Solution:
+    def isHappy(self, n):
+        """
+        :type n: int
+        :rtype: bool
+        """
+        hset = {n}
+        while(n != 1):
+            num = 0
+            while n:
+                n, remainder = divmod(n, 10) 
+                num += remainder**2
+            if num in hset: return False
+            hset.add(num)
+            n = num
+        return True
+
+   
