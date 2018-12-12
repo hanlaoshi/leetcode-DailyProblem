@@ -13,3 +13,7 @@ Note:
 The given array size will in the range [2, 10000].
 
 The given array's numbers won't have any order.
+
+`题目大意`
+
+数组正常的状态是1~N，但是有个数字重复出现了，导致覆盖了另外一个数字，现在要求重复出现的数字，和缺失的数字。
