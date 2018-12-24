@@ -1,38 +1,27 @@
-/*
-这道题就用循环递归解决子问题。
-
-因为求所有组合，这就意味着不能重复使用元素，要用visited数组。
-
-有因为是所有可能的组合，所以循环length次，就是这里面每位都有可能有length个可能性。
-
-正因为如此，每一层递归就不需要传递一个start点，告诉他从哪开始（因为都是从头开始循环）。
-*/
-
-public ArrayList<ArrayList<Integer>> permute(int[] num) {
-        ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
-        ArrayList<Integer> item = new ArrayList<Integer>();
-        
-        if(num.length==0||num==null)
-            return res;
-        boolean[] visited = new boolean[num.length];  
-        
-        permutation_helper(num,res,item,visited);
-        return res;
-    }
-    
-    public void permutation_helper(int[] num, ArrayList<ArrayList<Integer>> res, ArrayList<Integer> item,boolean[] visited){
-        if(item.size()==num.length){
-            res.add(new ArrayList<Integer>(item));
-            return;
+class Solution {
+    public int longestValidParentheses(String s) {
+        if (s == null || s.length() < 2) {
+            return 0;
         }
         
-        for(int i = 0; i<num.length;i++){
-            if(!visited[i]){
-                item.add(num[i]);
-                visited[i]=true;
-                permutation_helper(num,res,item,visited);
-                item.remove(item.size()-1);
-                visited[i]=false;
+        int[] dp = new int[s.length()];
+        int max = 0;
+        dp[0] = 0;
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                continue;
             }
+            int i1 = i - dp[i - 1] - 1;
+             if (i1 < 0) {
+                continue;
+            }
+            if (s.charAt(i1) == '(') {
+                int pre = i1 - 1 < 0 ? 0 : i1 - 1;
+                dp[i] = dp[i - 1] + 2 + dp[pre];
+            }
+            max = Math.max(dp[i], max);
         }
+
+        return max;
     }
+}
