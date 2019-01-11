@@ -24,6 +24,8 @@ class Solution:
 
 如下一棵二叉树，利用栈其整个过程为：
 
+![stack](https://github.com/hanlaoshi/leetcode-One-topic-per-day/blob/master/img-storage/94.stack.png?raw=true)
+
 l  根结点G入栈，若入栈的结点存在左子树，则依次入栈G/D/A，直至A发现其左子树为空，停止入栈，此时栈stack = [G,D,A]。
 
 l  A出栈，并对A进行遍历，发现A没有右子树，根据中序遍历，需要遍历A的根节点D，D出栈，D存在右孩子，将其右孩子F入栈，F有左子树E，E入栈，此时stack = [G,F,E]，res=[A,D]
