@@ -39,3 +39,40 @@ class Queue(object):
         :rtype: bool
         """
         return not self.inStack and not self.outStack
+    
+    
+    
+    
+'''
+单栈法：
+在执行push操作时，使用辅助栈swap，将栈中元素顺序按照push顺序的逆序存储。
+
+此时，push操作的时间复杂度为O(n)，其余操作的时间复杂度为O(1)
+'''
+class Queue:
+    # initialize your data structure here.
+    def __init__(self):
+        self.stack = []
+
+    # @param x, an integer
+    # @return nothing
+    def push(self, x):
+        swap = []
+        while self.stack:
+            swap.append(self.stack.pop())
+        swap.append(x)
+        while swap:
+            self.stack.append(swap.pop())
+
+    # @return nothing
+    def pop(self):
+        self.stack.pop()
+
+    # @return an integer
+    def peek(self):
+        return self.stack[-1]
+
+    # @return an boolean
+    def empty(self):
+        return len(self.stack) == 0
+
