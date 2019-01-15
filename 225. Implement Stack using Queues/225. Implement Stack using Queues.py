@@ -129,6 +129,48 @@ class Stack(object):
         """
         return not self.queue1
 
+# 辰星大佬方法
+# encoding: utf-8
+
+
+class MyStack:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.list = []
+
+    def push(self, x):
+        """
+        Push element x onto stack.
+        :type x: int
+        :rtype: void
+        """
+        self.list.append(x)
+
+    def pop(self):
+        """
+        Removes the element on top of the stack and returns that element.
+        :rtype: int
+        """
+        return self.list.pop()
+
+    def top(self):
+        """
+        Get the top element.
+        :rtype: int
+        """
+        return self.list[-1]
+        
+
+    def empty(self):
+        """
+        Returns whether the stack is empty.
+        :rtype: bool
+        """
+        return self.list == []
+
 
 
 
