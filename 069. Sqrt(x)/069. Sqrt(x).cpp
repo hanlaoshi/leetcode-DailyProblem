@@ -1,4 +1,4 @@
-class Solution127_2 {
+class Solution_2 {
 public:
     int mySqrt(int x) {
         if (x == 0 || x == 1)
