@@ -26,3 +26,21 @@ class Solution(object):
                 curr.next = curr.next.next
             curr = curr.next
         return head
+
+    #方法2， by 辰星
+    
+    class Solution:
+    def deleteDuplicates(self, head: ListNode) -> ListNode:
+        if not head: return head
+        current = head
+        while current.next:
+            if current.val == current.next.val:
+                checking = current.next
+                while checking.next:
+                    if current.val != checking.next.val:
+                        break
+                    checking = checking.next
+                current.next = checking.next
+            else:
+                current = current.next
+        return head
