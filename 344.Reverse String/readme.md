@@ -1,8 +1,15 @@
-#### [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
+#### LeetCode344. 反转字符串
 
 
 
+请编写一个函数，其功能是将输入的字符串反转过来。
 
+**示例：**
+
+```
+输入：s = "hello"
+返回："olleh"
+```
 
 
 
