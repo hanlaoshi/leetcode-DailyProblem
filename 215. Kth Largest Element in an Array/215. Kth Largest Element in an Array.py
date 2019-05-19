@@ -1,37 +1,30 @@
-1，python的collections库：代码写起来很清爽，但是集合操作相对慢。
-
+#解题思路：利用快速排序的思想。每次找一半。最坏情况O(N2)，平均时间O(N)。
 class Solution(object):
-    def firstUniqChar(self, s):
+    def findKthLargest(self, nums, k):
         """
-        :type s: str
+        :type nums: List[int]
+        :type k: int
         :rtype: int
         """
-        d = collections.Counter(s)
-
-        ans = -1
-        for x,c in enumerate(s):
-            if d[c] == 1:
-                ans = x
-                break
-
-        return ans
-2，数组计数
-
-class Solution(object):
-    def firstUniqChar(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        if len(s) == 0:
-            return -1
-
-        hash = [0]*26
-        for i in s:
-            hash[ord(i) - 97] += 1
-
-        for i in s:
-            if hash[ord(i) -97] == 1:
-                return s.index(i)
-
-        return -1
+        return self.find(nums,k-1,0,len(nums)-1)
+    def find(self,nums,k,left,right):
+        l = left
+        r = right
+        partition = nums[(left+right)/2]
+        while(left<=right):#结束条件是left大于right，否则有可能需要交换
+            while(nums[left]>partition):
+                left += 1
+            while(nums[right]<partition):
+                right -= 1
+            if left <= right:
+                nums[left],nums[right] = nums[right],nums[left]
+                left += 1
+                right -= 1
+        if right >= k and right>l:
+            #说明在右半边
+            return self.find(nums,k,l,right)
+        if left <= k and left<r:
+            #说明在左半边
+            return self.find(nums,k,left,r)
+        #nums[k]已经是第k+1大的数
+        return nums[k]

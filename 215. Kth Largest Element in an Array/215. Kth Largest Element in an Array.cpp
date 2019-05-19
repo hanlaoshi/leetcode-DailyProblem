@@ -1,16 +1,13 @@
-class Solution 
-{
+class Solution {
 public:
-    int firstUniqChar(string s) 
-    {
-        unordered_map<char, int> m;
-        for (char c : s) 
-            m[c]++;
-        for (int i = 0; i < s.size(); ++i) 
-        {
-            if (m[s[i]] == 1) 
-                return i;
+    int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int> p;  
+        for(auto n:nums){
+            p.push(n);
         }
-        return -1;
+        for(int i = 0; i < k-1; i++){
+            p.pop();
+        }
+        return p.top();
     }
 };
